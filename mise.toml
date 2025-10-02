@@ -1,0 +1,9 @@
+[tools]
+uv = "0.8"
+ruff = "0.13"
+just = "1"
+python = "3.12"
+"pipx:pyrefly" = "0.35"
+
+[env]
+_.python.venv = { create = true, path = ".venv" }

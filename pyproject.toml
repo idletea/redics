@@ -1,0 +1,67 @@
+[project]
+name = "redics"
+version = "0.1.0"
+description = "Publish redis values as prometheus metrics"
+readme = "readme.md"
+requires-python = ">=3.12"
+authors = [
+    { name = "Terry Kerr", email="terry@idletea.net" },
+]
+dependencies = [
+    "falcon>=4.1.0",
+    "pydantic>=2.11.9",
+    "redis>=6.4.0",
+    "structlog>=25.4.0",
+    "uvicorn>=0.37.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.8.22,<0.9.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "redics"
+module-root = ""
+
+[tool.ruff.lint]
+select = [
+    "ARG",  # https://beta.ruff.rs/docs/rules/#flake8-unused-arguments-arg
+    "B",    # https://pypi.org/project/flake8-bugbear/
+    "BLE",  # https://pypi.org/project/flake8-blind-except/
+    "C4",   # https://github.com/adamchainz/flake8-comprehensions
+    "C90",  # https://pypi.org/project/mccabe/
+    "E",    # https://pycodestyle.pycqa.org/en/latest/intro.html#error-codes
+    "ERA",  # https://pypi.org/project/flake8-eradicate/
+    "EXE",  # https://pypi.org/project/flake8-executable/
+    "F",    # https://flake8.pycqa.org/en/latest/user/error-codes.html
+    "I",    # https://pycqa.github.io/isort/
+    "ICN",  # https://pypi.org/project/flake8-import-conventions/
+    "ISC",  # https://github.com/flake8-implicit-str-concat/flake8-implicit-str-concat
+    "LOG",  # https://github.com/adamchainz/flake8-logging
+    "N",    # https://github.com/PyCQA/pep8-naming
+    "PERF", # https://pypi.org/project/perflint/
+    "PIE",  # https://pypi.org/project/flake8-pie/
+    "PLC",  # https://beta.ruff.rs/docs/rules/#convention-plc
+    "PT",   # https://github.com/m-burst/flake8-pytest-style
+    "PTH",  # https://pypi.org/project/flake8-use-pathlib/
+    "RET",  # https://pypi.org/project/flake8-return/
+    "RUF",  # https://beta.ruff.rs/docs/rules/#ruff-specific-rules-ruf
+    "SIM",  # https://pypi.org/project/flake8-simplify/
+    "TRY",  # https://pypi.org/project/tryceratops/
+    "W",    # https://pycodestyle.pycqa.org/en/latest/intro.html#error-codes
+]
+ignore = [
+    "TRY003",  # disallows even short messages in exceptions
+]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+force-sort-within-sections = true
+required-imports = ["from __future__ import annotations"]
+section-order = [
+    "future",
+    "standard-library",
+    "third-party",
+    "first-party",
+    "local-folder",
+]
